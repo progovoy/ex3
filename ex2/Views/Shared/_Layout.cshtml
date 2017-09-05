@@ -1,42 +1,135 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!-- Authors: Pavel Rogovoy (320558414) -->
+    <meta name="author" content="Pavel Rogovoy (320558414)">
+    <title>Browser Page title</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/custom")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <header>
+        <h1>Ha-Blog Shel Shauli</h1>
+    </header>
+    <nav>
+        <!-- Navigation -->
+        <ul>
+            <li class="selected"><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Archives</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="subscribe">
+                <a href="#">
+                    <div id="rss_logo">
+                        <div class="hover">
+                            <img src=http://www.ashlylorenzana.com/wp-content/uploads/2013/12/12065637851779660844SRD_RSS_Logo.svg_.hi_.png width="30" height="30">
+                        </div>
+                        <span id="rss_text">Subscribe via RSS</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <section id="intro">
+        <!-- Introduction -->
 
+        <header>
+            <h2>Do you have questions for me?</h2>
+        </header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+        <img src="images/intro_shauli.png" alt="Shauli" />
+    </section>
+    <div id="search_bar">
+        <form name="search_blog_form" id="search_blog_form" onsubmit="return submit_search();">
+            Search by: <br>
+            <label for="date_start" style="display:inline-block; width:auto">Start Date</label>
+            <input type="date" name="date_start" id="date_start"><br>
+            <label for="date_end" style="display:inline-block; width:auto">End Date</label>
+            <input type="date" name="date_end" id="date_end"><br>
+            <label for="author_name" style="display:inline-block; width:auto">Author Name</label>
+            <input type="text" name="author_name" id="author_name" style="margin-bottom: 15px"><br>
+            <label for="email_addr" style="display:inline-block; width:auto;">E-mail</label>
+            <input type="email" name="email_addr" id="email_addr"><br>
+            <label for="post_comments" style="display:inline-block; width:auto;">Comments on post</label>
+            <input type="text" name="post_comments" id="post_comments" style="margin-bottom: 15px"><br>
+            <label for="min_n_of_comments" style="display:inline-block; width:auto;">Minimal number of comments</label>
+            <div style="margin-top: -5px; display:inline-block">
+                1
+                <input type="range" name="min_n_of_comments" id="min_n_of_comments" min="1" max="10">
+                10
+            </div>
+            <br>
+            <input type="submit" name="submit_blog_search" id="submit_blog_search" value="Search">
+            <br>
+        </form>
+    </div>
+    <div style="direction:rtl; margin: 10px 0 10px 0; display:none">
+        <audio controls autoplay id="song_bg">
+            <source src="dixie-horn_daniel-simion.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    <div id="content">
+        <div id="mainContent">
+            @RenderBody()
+        </div>
+        <aside>
+            <section>
+                <header>
+                    <h3>Categories</h3>
+                </header>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Sit amet consectetur</a></li>
+                    <li><a href="#">Adipisicing elit sed</a></li>
+                </ul>
+            </section>
+            <section>
+                <header>
+                    <h3>Archives</h3>
+                </header>
+                <ul>
+                    <li><a href="#">December 2008</a></li>
+                    <li><a href="#">January 2009</a></li>
+                    <li><a href="#">February 2009</a></li>
+                    <li><a href="#">March 2009</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+    <footer>
+        <!-- Footer -->
+        <div>
+            <section id="about">
+                <header>
+                    <h3>About</h3>
+                </header>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut la</p>
+            </section>
+            <section id="blogroll">
+                <header>
+                    <h3>Blogroll</h3>
+                </header>
+                <ul>
+                    <li><a href="#">NETTUTS+</a></li>
+                    <li><a href="#">FreelanceSwitch</a></li>
+                </ul>
+            </section>
+            <section id="popular">
+                <header>
+                    <h3>Popular</h3>
+                </header>
+                <ul>
+                    <li><a href="#">This is the title of a blog post</a></li>
+                    <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><a href="#">Consectetur adipisicing elit, sed do eiusmod</a></li>
+                </ul>
+            </section>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-</body>
+    </body>
 </html>
