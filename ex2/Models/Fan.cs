@@ -17,10 +17,10 @@ namespace ex2.Models
 
         public Fan()
         {
-            this.FirstName = "XX";
-            this.LastName = "XX";
+            this.FirstName = "X";
+            this.LastName = "X";
             this.YearsInClub = 0;
-            this.Gender = 'F';
+            this.Gender = 'X';
             this.BirthDate = new DateTime();
         }
 
