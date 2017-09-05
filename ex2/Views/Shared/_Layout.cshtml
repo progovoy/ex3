@@ -3,7 +3,7 @@
     <head>
         <!-- Authors: Pavel Rogovoy (320558414) -->
         <meta name="author" content="Pavel Rogovoy (320558414)">
-        <title>Browser Page title</title>
+        <title>@ViewBag.Title</title>
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/custom")
         @Scripts.Render("~/bundles/modernizr")
@@ -15,9 +15,9 @@
         <nav>
             <!-- Navigation -->
             <ul>
-                <li class="selected"><a href="#">Blog</a></li>
+                <li>@Html.ActionLink("Shauli Blog", "Index", "Blog")</li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Archives</a></li>
+                <li>@Html.ActionLink("Fan Club", "Index", "Fans")</li>
                 <li><a href="#">Contact</a></li>
                 <li class="subscribe">
                     <a href="#">
