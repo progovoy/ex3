@@ -6,69 +6,32 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Post</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+<section class="post-content-section">
+    <article class="blogPost">
+        <header>
+            <h2 class="post-title">@Html.DisplayFor(model => model.Title)</h2>
+            <p>Posted on <time>@Html.DisplayFor(model => model.PublshDate)</time> by <a href="@Html.DisplayFor(model => model.AuthorWebPage)">@Html.DisplayFor(model => model.AuthorName)</a> - <a href="#comments">@Html.DisplayFor(model => model.Comments.Count) comments</a></p>
+        </header>
+        <div class="content">
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <p>@Html.DisplayFor(model => model.Content)</p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorName)
-        </dt>
+            <br />
 
-        <dd>
-            @Html.DisplayFor(model => model.AuthorName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AuthorWebPage)
-        </dt>
+            @if (Model.ImageUrl != null && Model.ImageUrl != string.Empty)
+            {
+                <img src="~/Images/@Model.ImageUrl" alt="Pic" />
+            }
 
-        <dd>
-            @Html.DisplayFor(model => model.AuthorWebPage)
-        </dd>
+            @if (Model.VideoUrl != null && Model.VideoUrl != string.Empty)
+            {
+                <video controls="controls">
+                    <source src="~/Videos/@Model.VideoUrl" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PublshDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PublshDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VideoUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VideoUrl)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </div>
+    </article>
+</section>

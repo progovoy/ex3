@@ -6,9 +6,7 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -18,19 +16,7 @@
             @Html.DisplayNameFor(model => model.AuthorName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AuthorWebPage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PublshDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VideoUrl)
+            Actions
         </th>
         <th></th>
     </tr>
@@ -44,26 +30,17 @@
             @Html.DisplayFor(modelItem => item.AuthorName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AuthorWebPage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PublshDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VideoUrl)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Comments", "Index","Comments", new { id = item.ID }, null) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
 
 </table>
+
+
+<p>
+    @Html.ActionLink("Add New Post", "Create")
+</p>

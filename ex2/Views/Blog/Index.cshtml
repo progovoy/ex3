@@ -48,7 +48,8 @@
                     <header>
                         <a href="@Html.DisplayFor(Comments => comment.AuthorWebPage)">@Html.DisplayFor(Comments => comment.AuthorName)</a> on <time>@Html.DisplayFor(modelItem => comment.PublshDate)</time>
                     </header>
-                    <p>@Html.DisplayFor(Comments => comment.Content)</p>
+
+                    <p>@Html.DisplayFor(Comments => comment.Title) <br> @Html.DisplayFor(Comments => comment.Content)</p>
                 </article>
             }
         }
