@@ -10,6 +10,7 @@ namespace ex2.Models
         public BlogDbContext()
             : base("name=BlogConnectionSettings")
         {
+            Database.SetInitializer<BlogDbContext>(new DropCreateDatabaseIfModelChanges<BlogDbContext>());
         }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

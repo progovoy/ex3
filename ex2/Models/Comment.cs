@@ -8,15 +8,27 @@ namespace ex2.Models
 {
     public class Comment
     {
-        public int ID { get; set; }
-        public string Title { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorWebPage { get; set; }
-        public string Content { get; set; }
-
-        [ForeignKey("Post")]
-        public int PostId { get; set; }
-
+        public int ID { get; set; }
+
+        public string Title { get; set; }
+
+        public DateTime PublshDate { get; set; }
+
+        public string AuthorName { get; set; }
+
+        public string AuthorWebPage { get; set; }
+
+        public string Content { get; set; }
+
+        [ForeignKey("Post")]
+
+        public int PostId { get; set; }
+
         public Post Post { get; set; }
+
+        public Comment()
+        {
+            PublshDate = DateTime.Now;
+        }
     }
 }
