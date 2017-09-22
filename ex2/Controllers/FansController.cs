@@ -12,7 +12,7 @@ namespace ex2.Controllers
 {
     public class FansController : Controller
     {
-        private FanDBContext db = new FanDBContext();
+        private BlogDbContext db = new BlogDbContext();
 
         // GET: Fans
         public ActionResult Index()

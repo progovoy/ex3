@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace ex2.Models
 {
@@ -32,10 +28,5 @@ namespace ex2.Models
             this.Gender = Gender;
             this.BirthDate = DateTime.Now;
         }
-    }
-
-    public class FanDBContext : DbContext
-    {
-        public DbSet<Fan> Fans { get; set; }
     }
 }
